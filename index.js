@@ -19,6 +19,6 @@ libraryApp.use(cors());
 libraryApp.use(express.json());
 libraryApp.use(libraryRouter)
 // listen for incoming requests
-libraryApp.listen(3001, function(){
-    console.log('App is listening on port 3001')
+libraryApp.listen(3002, function(){
+    console.log('App is listening on port 3002')
 }); 
