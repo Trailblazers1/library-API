@@ -6,6 +6,7 @@ try {
     await LibraryModel.create(req.body);
 
     res.status(201).json('A book has been added');
+    
 
 } catch (error) {
     next(error);
