@@ -9,4 +9,4 @@ library: { type: Types.ObjectId, ref: 'Library'}
    
 });
 
-export const ReviewModel = model('Review', userSchema);
+export const ReviewModel = model('Review', reviewSchema);
