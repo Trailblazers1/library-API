@@ -10,7 +10,7 @@ export const addReview = async (req, res, next) => {
     } catch (error) {
         next(error);
     }
-    }
+    } 
     
     
     export const getAllReviews = async (req, res, next) => {
@@ -34,13 +34,23 @@ export const addReview = async (req, res, next) => {
         }
        
     }
-    export const updateReview = (req, res, next) => {
-        res.json('A review has updated');
-    }
-    export const deleteReview = (req, res, next) => {
+    export const updateReview = async (req, res, next) => {
         try {
-            res.json('A review has been deleted');
-        } catch (error) {
+            const reviewUpadate = await ReviewModel.updateOne();
+            res.status(201).json('A review has updated');
+        } 
+        catch (error) {
+            next(error);
+        }
+     
+    }
+
+    export const deleteReview = async (req, res, next) => {
+        try {
+            const reviewDel = await ReviewModel.deleteOne();
+            res.status(201).json('A review has been deleted');
+        } 
+        catch (error) {
             next(error);
         }
        
