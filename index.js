@@ -12,9 +12,11 @@ const libraryApp = express();
 // connect to the database
 await mongoose.connect(process.env.MONGO_URI);
 
-
+// define middlewares
 libraryApp.use(cors());
 libraryApp.use(express.json());
+
+// define routes
 libraryApp.use(libraryRouter);
 libraryApp.use(authorRouter);
 
