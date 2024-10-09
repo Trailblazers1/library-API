@@ -4,6 +4,7 @@ import cors from 'cors';
 import libraryRouter from "./routes/library-routes.js";
 import authorRouter from "./routes/author-routes.js";
 import reviewRouter from "./routes/review-routes.js";
+import Joi from "joi";
 
 // create express app
 const libraryApp = express();
@@ -14,6 +15,7 @@ await mongoose.connect(process.env.MONGO_URI);
 
 // define middlewares
 libraryApp.use(cors());
+
 libraryApp.use(express.json());
 
 // define routes
