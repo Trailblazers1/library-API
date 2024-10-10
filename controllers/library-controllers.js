@@ -1,6 +1,6 @@
 
 import { LibraryModel } from "../models/library-models.js";
-
+// import { bookValidate } from "../validators/library-validators.js";
 export const addBook = async (req, res, next) => {
 try {
    const bookPost = await LibraryModel.create(req.body);
@@ -16,7 +16,7 @@ try {
 
 export const getAllBooks = async (req, res, next) => {
     try {
-        const books = await LibraryModel.find();
+        const books = await LibraryModel.find().populate('author');
         // res.status(200).json('Get all books');
         res.status(201).json(books);
     } catch (error) {
@@ -28,7 +28,7 @@ export const getAllBooks = async (req, res, next) => {
 
 export const getOneBook = async (req, res, next) => {
     try {
-        const onebook = await LibraryModel.findById(req.params.id);
+        const onebook = await LibraryModel.findById(req.params.id).populate('author');
         res.status(201).json(onebook);
     } catch (error) {
         next(error)
