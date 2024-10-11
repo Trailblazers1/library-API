@@ -32,7 +32,7 @@ export const updateAuthorValidate =(req,res,next)=>{
     
     
         try {
-            const{error} = newAuthorValidation.validate(req.body)
+            const{error} = authorValidation.validate(req.body)
     
             if (error) {
             
