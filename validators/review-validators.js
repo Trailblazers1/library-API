@@ -35,7 +35,7 @@ export const updateReviewValidate =(req,res,next)=>{
     
     
         try {
-            const{error} = newReviewValidation.validate(req.body)
+            const{error} = reviewValidation .validate(req.body)
             if (error) {
                 return res.status(400).json(error)
             }
