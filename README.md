@@ -122,3 +122,31 @@ npm test
 
 - **MongoDB connection error**: Ensure MongoDB is running locally or check your `MONGODB_URI` in `.env`.
 
+
+Overview
+
+The Book Search endpoint allows users to search for books in the library database using various query parameters. Users can search by title, author, genre, or any combination of these parameters.
+
+Search by title
+GET /api/books?title=Lord of the Rings
+
+Search by author
+GET /api/books?author=Tolkien
+
+Search by genre
+GET /api/books?genre=Fiction
+
+Combined search
+GET /api/books?author=Tolkien&genre=Fantasy
+
+Implementation Details
+
+-  The search is case-insensitive
+-  Partial matches are supported (e.g., searching for "Tol" will match "Tolkien")
+- If no query parameters are provided, all books will be returned
+- The search uses MongoDB's $regex operator for pattern matching
+
+Error Handling
+In case of an error, the API will return an appropriate HTTP status code along with an error message.
+
+
