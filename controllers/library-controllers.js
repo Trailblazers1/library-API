@@ -30,7 +30,7 @@ export const getAllBooks = async (req, res, next) => {
 export const getOneBook = async (req, res, next) => {
     try {
         const onebook = await LibraryModel.findById(req.params.id);
-        res.status(201).json(onebook);
+        res.status(200).json(onebook);
     } catch (error) {
         next(error);
     }

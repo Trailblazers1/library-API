@@ -18,7 +18,7 @@ export const addReview = async (req, res, next) => {
         try {
             const reviews = await ReviewModel.find();
             // res.status(200).json('Get all reviews');
-            res.status(201).json(reviews);
+            res.status(200).json(reviews);
         } catch (error) {
            next(error); 
         }
@@ -30,7 +30,7 @@ export const addReview = async (req, res, next) => {
         try {
             const oneReview = await ReviewModel.findById(req.params.id);
             // res.status(200).json('Get one review');
-            res.status(201).json(oneReview);
+            res.status(200).json(oneReview);
         } catch (error) {
             next(error);
         }
@@ -39,7 +39,7 @@ export const addReview = async (req, res, next) => {
     export const updateReview = async (req, res, next) => {
         try {
             const reviewUpadate = await ReviewModel.findByIdAndUpdate(req.params.id, req.body, {new: true});
-            res.status(200).json('A review has updated');
+            res.status(200).json(reviewUpadate);
         } 
         catch (error) {
             next(error);
@@ -50,7 +50,7 @@ export const addReview = async (req, res, next) => {
     export const deleteReview = async (req, res, next) => {
         try {
             const reviewDel = await ReviewModel.findByIdAndDelete(req.params.id);
-            res.status(200).json('A review has been deleted');
+            res.status(200).json(reviewDel);
         } 
         catch (error) {
             next(error);
